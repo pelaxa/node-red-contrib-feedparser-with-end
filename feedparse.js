@@ -52,6 +52,8 @@ module.exports = function(RED) {
             };
         }
 
+        this.on("input", function() {
+            getFeed();
         });
     }
 
