@@ -6,8 +6,7 @@
         },
         "errors": {
             "badstatuscode": "error - Bad status code",
-            "invalidurl": "Invalid url",
-            "invalidinterval": "Repeat interval too large"
+            "invalidurl": "Invalid url"
         }
     }
 }
