@@ -20,7 +20,7 @@
   ],
   "node-red": {
     "nodes": {
-      "feedparse": "feedparse.js"
+      "feedparse2": "feedparse.js"
     }
   }
 }

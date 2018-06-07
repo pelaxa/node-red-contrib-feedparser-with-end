@@ -8,14 +8,14 @@ module.exports = function(RED) {
     function FeedParseNode(n) {
         RED.nodes.createNode(this,n);
         this.url = n.url;
-        if (n.interval > 35790) { this.warn(RED._("feedparse.errors.invalidinterval")) }
+        if (n.interval > 35790) { this.warn(RED._("feedparse2.errors.invalidinterval")) }
         this.interval = (parseInt(n.interval)||15) * 60000;
         var node = this;
         this.interval_id = null;
         this.seen = {};
         var parsedUrl = url.parse(this.url);
         if (!(parsedUrl.host || (parsedUrl.hostname && parsedUrl.port)) && !parsedUrl.isUnix) {
-            this.error(RED._("feedparse.errors.invalidurl"));
+            this.error(RED._("feedparse2.errors.invalidurl"));
         }
         else {
             var getFeed = function() {
@@ -29,7 +29,7 @@ module.exports = function(RED) {
                 req.on('error', function(err) { node.error(err); });
 
                 req.on('response', function(res) {
-                    if (res.statusCode != 200) { node.warn(RED._("feedparse.errors.badstatuscode")+" "+res.statusCode); }
+                    if (res.statusCode != 200) { node.warn(RED._("feedparse2.errors.badstatuscode")+" "+res.statusCode); }
                     else { res.pipe(feedparser); }
                 });
 
@@ -64,5 +64,5 @@ module.exports = function(RED) {
         });
     }
 
-    RED.nodes.registerType("feedparse",FeedParseNode);
+    RED.nodes.registerType("feedparse2",FeedParseNode);
 }
