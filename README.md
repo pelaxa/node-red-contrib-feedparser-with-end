@@ -8,9 +8,9 @@ Added an input for injection, this is good for debugging the flow or a flexible 
 ![](screenshot.png)
 
 
-<!--Install
+Install
 -------
 
 Run the following command in your Node-RED user directory - typically `~/.node-red`
 
-        npm install node-red-contrib-feedparser-2-->
+        npm install node-red-contrib-feedparser-2
