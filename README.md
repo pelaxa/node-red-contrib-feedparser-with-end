@@ -1,20 +1,16 @@
-node-red-node-feedparser
+node-red-contrib-feedparser-2
 ========================
 
-A <a href="http://nodered.org" target="_new">Node-RED</a> node to read RSS and Atom feeds.
+A modified version of [node-red-node-feedparser](https://github.com/node-red/node-red-nodes/tree/master/social/feedparser) 
 
-Install
+Added an input for injection, this is good for debugging the flow or a flexible interval.
+
+![](screenshot.png)
+
+
+<!--Install
 -------
 
 Run the following command in your Node-RED user directory - typically `~/.node-red`
 
-        npm install node-red-node-feedparser
-
-Usage
------
-
-### Input
-
-Monitors an RSS/atom feed for new entries.
-
-You can set the polling time in minutes. Defaults to 15 minutes.
+        npm install node-red-contrib-feedparser-2-->
