@@ -1,7 +1,7 @@
 
-<script type="text/x-red" data-template-name="feedparse2">
+<script type="text/x-red" data-template-name="feedparse-extended">
     <div class="form-row">
-        <label for="node-input-url"><i class="fa fa-globe"></i> <span data-i18n="feedparse2.label.feedurl"></span></label>
+        <label for="node-input-url"><i class="fa fa-globe"></i> <span data-i18n="feedparse-extended.label.feedurl"></span></label>
         <input type="text" id="node-input-url">
     </div>
     <div class="form-row">
@@ -10,7 +10,7 @@
     </div>
 </script>
 
-<script type="text/x-red" data-help-name="feedparse2">
+<script type="text/x-red" data-help-name="feedparse-extended">
     <p>Monitors an RSS/atom feed for new entries.</p>
     <p>The <code>msg.topic</code> contains the original article link. The <code>msg.payload</code>
     contains the description, and <code>msg.article</code> contains the complete article object,
@@ -18,7 +18,7 @@
 </script>
 
 <script type="text/javascript">
-    RED.nodes.registerType('feedparse2',{
+    RED.nodes.registerType('feedparse-extended',{
         category: 'advanced-input',
         color:"#C0DEED",
         defaults: {
@@ -29,10 +29,10 @@
         outputs:1,
         icon: "feed.png",
         paletteLabel: function() {
-            return this._("feedparse2.feedparse2");
+            return this._("feedparse-extended.feedparse-extended");
         },
         label: function() {
-            return this.name||this.url||this._("feedparse2.feedparse2");
+            return this.name||this.url||this._("feedparse-extended.feedparse-extended");
         },
         labelStyle: function() {
             return this.name?"node_label_italic":"";

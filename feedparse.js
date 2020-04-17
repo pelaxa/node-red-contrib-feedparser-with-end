@@ -12,11 +12,17 @@ module.exports = function(RED) {
         this.seen = {};
         var parsedUrl = url.parse(this.url);
         if (!(parsedUrl.host || (parsedUrl.hostname && parsedUrl.port)) && !parsedUrl.isUnix) {
-            this.error(RED._("feedparse2.errors.invalidurl"));
+            this.error(RED._("feedparse-extended.errors.invalidurl"));
         }
         else {
             var getFeed = function(msg) {
-                var req = request(node.url, {timeout:10000, pool:false});
+                var feed_url;
+                if(msg.payload != null){
+                    feed_url = msg.payload;
+                } else {
+                    feed_url = node.url;
+                }
+                var req = request(feed_url, {timeout:10000, pool:false});
                 //req.setMaxListeners(50);
                 req.setHeader('user-agent', 'Mozilla/5.0 (Node-RED)');
                 req.setHeader('accept', 'text/html,application/xhtml+xml');
@@ -26,7 +32,7 @@ module.exports = function(RED) {
                 req.on('error', function(err) { node.error(err); });
 
                 req.on('response', function(res) {
-                    if (res.statusCode != 200) { node.warn(RED._("feedparse2.errors.badstatuscode")+" "+res.statusCode); }
+                    if (res.statusCode != 200) { node.warn(RED._("feedparse-extended.errors.badstatuscode")+" "+res.statusCode); }
                     else { res.pipe(feedparser); }
                 });
 
@@ -57,5 +63,5 @@ module.exports = function(RED) {
         });
     }
 
-    RED.nodes.registerType("feedparse2",FeedParseNode);
+    RED.nodes.registerType("feedparse-extended",FeedParseNode);
 }
