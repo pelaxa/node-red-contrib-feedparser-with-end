@@ -1,4 +1,4 @@
-node-red-contrib-feedparser-with-end
+@pelaxa/node-red-feedparser-with-end
 ========================
 
 A modified version of [node-red-node-feedparser-extended](https://github.com/arossmann/node-red-contrib-feedparser-extended) 
@@ -18,4 +18,4 @@ Install
 
 Run the following command in your Node-RED user directory - typically `~/.node-red`
 
-        npm install node-red-contrib-feedparser-with-end
+        npm install @pelaxa/node-red-feedparser-with-end
